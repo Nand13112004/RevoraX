@@ -27,7 +27,9 @@ app.use(cors({
   origin: (origin, callback) => {
     // Allow requests with no origin (e.g. curl, Postman)
     if (!origin) return callback(null, true);
+    // Allow stable production URL + any Vercel preview deployment for this project
     if (allowedOrigins.includes(origin)) return callback(null, true);
+    if (/^https:\/\/odo0.*\.vercel\.app$/.test(origin)) return callback(null, true);
     callback(new Error(`CORS: origin ${origin} not allowed`));
   },
   credentials: true,
