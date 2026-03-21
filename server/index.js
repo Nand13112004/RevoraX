@@ -5,27 +5,32 @@ const cors = require('cors');
 const connectDB = require('./config/db');
 
 // Route imports
-const authRoutes     = require('./routes/auth');
-const productRoutes  = require('./routes/products');
-const bomRoutes      = require('./routes/bom');
-const ecoRoutes      = require('./routes/eco');
-const reportRoutes   = require('./routes/reports');
+const authRoutes = require('./routes/auth');
+const productRoutes = require('./routes/products');
+const bomRoutes = require('./routes/bom');
+const ecoRoutes = require('./routes/eco');
+const reportRoutes = require('./routes/reports');
 const settingsRoutes = require('./routes/settings');
+const companyRoutes = require('./routes/company');
+const memberRoutes = require('./routes/members');
+const inviteRoutes = require('./routes/invite');
 
 const app = express();
 
 // Middleware
-const allowedOrigin = process.env.CLIENT_URL || 'http://localhost:5173';
-app.use(cors({ origin: allowedOrigin, credentials: true }));
+app.use(cors({ origin: 'http://localhost:5173', credentials: true }));
 app.use(express.json());
 
 // Routes
-app.use('/api/auth',     authRoutes);
+app.use('/api/auth', authRoutes);
 app.use('/api/products', productRoutes);
-app.use('/api/bom',      bomRoutes);
-app.use('/api/eco',      ecoRoutes);
-app.use('/api/reports',  reportRoutes);
+app.use('/api/bom', bomRoutes);
+app.use('/api/eco', ecoRoutes);
+app.use('/api/reports', reportRoutes);
 app.use('/api/settings', settingsRoutes);
+app.use('/api/company', companyRoutes);
+app.use('/api/members', memberRoutes);
+app.use('/api/invite', inviteRoutes);
 
 // Health check
 app.get('/api/health', (req, res) => res.json({ status: 'ok' }));
