@@ -216,26 +216,24 @@ const ECODetail = () => {
 
       {/* ECO Details */}
       {isPending ? (
-        <ShineBorder colors={['#D97706', '#7C3AED', '#00B4D8']} borderWidth={2} className="rounded-xl">
-          <div className="glass-card p-5 bg-white/[0.02]">
-            <p className="m-0 mb-3.5 text-[13px] font-bold text-[#FDE68A] uppercase tracking-wider">⏳ Pending Approval</p>
-            <div className="grid grid-cols-2 gap-x-5 gap-y-3">
-              <Field label="Product">
-                {eco.product?.name}{' '}
-                <span className="font-mono text-[11px] bg-white/[0.08] text-[#90E0EF] px-1.5 py-0.5 rounded">{eco.product?.version}</span>
-              </Field>
-              {eco.ecoType === ECO_TYPES.BOM && (
-                <Field label="BOM Version"><span className="font-mono text-[#90E0EF] bg-white/[0.08] px-1.5 py-0.5 rounded">{eco.bom?.version || '—'}</span></Field>
-              )}
-              <Field label="Stage"><span className="text-[#FCD34D] font-semibold">{eco.stage}</span></Field>
-              <Field label="Status"><StatusBadge status={eco.status} /></Field>
-              <Field label="Version Update">{eco.versionUpdate ? '✅ New version' : '⚠️ Patch in-place'}</Field>
-              <Field label="Effective Date">{formatDate(eco.effectiveDate)}</Field>
-              <Field label="Created By">{eco.user?.name || '—'}</Field>
-              <Field label="Created">{formatDate(eco.createdAt)}</Field>
-            </div>
+        <div className="glass-card p-5 border-amber-500/30 bg-amber-900/[0.05]">
+          <p className="m-0 mb-3.5 text-[13px] font-bold text-[#FDE68A] uppercase tracking-wider">⏳ Pending Approval</p>
+          <div className="grid grid-cols-2 gap-x-5 gap-y-3">
+            <Field label="Product">
+              {eco.product?.name}{' '}
+              <span className="font-mono text-[11px] bg-white/[0.08] text-[#90E0EF] px-1.5 py-0.5 rounded">{eco.product?.version}</span>
+            </Field>
+            {eco.ecoType === ECO_TYPES.BOM && (
+              <Field label="BOM Version"><span className="font-mono text-[#90E0EF] bg-white/[0.08] px-1.5 py-0.5 rounded">{eco.bom?.version || '—'}</span></Field>
+            )}
+            <Field label="Stage"><span className="text-[#FCD34D] font-semibold">{eco.stage}</span></Field>
+            <Field label="Status"><StatusBadge status={eco.status} /></Field>
+            <Field label="Version Update">{eco.versionUpdate ? '✅ New version' : '⚠️ Patch in-place'}</Field>
+            <Field label="Effective Date">{formatDate(eco.effectiveDate)}</Field>
+            <Field label="Created By">{eco.user?.name || '—'}</Field>
+            <Field label="Created">{formatDate(eco.createdAt)}</Field>
           </div>
-        </ShineBorder>
+        </div>
       ) : detailsCard}
 
       {/* Proposed changes */}

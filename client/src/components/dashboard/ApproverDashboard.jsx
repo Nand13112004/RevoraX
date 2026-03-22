@@ -145,7 +145,7 @@ const ApproverDashboard = () => {
       {/* Stat Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-3.5">
         <StatCard label="Pending Approvals" value={stats.pending} icon="⏳" loading={loading}
-                  urgent={stats.pending > 0} shine={stats.pending > 0} />
+                  urgent={stats.pending > 0} />
         <StatCard label="Approved ECOs" value={stats.approved} icon="✅" loading={loading} border="#10B981" />
         <StatCard label="Rejected / Cancelled" value={stats.rejected} icon="❌" loading={loading} border="#EF4444" />
       </div>

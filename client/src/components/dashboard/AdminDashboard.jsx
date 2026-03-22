@@ -142,7 +142,7 @@ const AdminDashboard = () => {
         <KPICard label="Total Members" value={data.members} icon="👥" accent="#90E0EF" loading={loading} />
         <KPICard label="Active ECOs" value={data.open} icon="📋" accent="#00B4D8" loading={loading} />
         <KPICard label="Pending Approvals" value={data.pending} icon="⏳" accent="#FCD34D" loading={loading}
-                 sub={data.pending > 0 ? 'Needs attention' : undefined} shine={data.pending > 0} />
+                 sub={data.pending > 0 ? 'Needs attention' : undefined} />
         <KPICard label="Ready to apply" value={data.ready} icon="⚡" accent="#A78BFA" loading={loading}
                  sub="Final stage — run Apply" />
         <KPICard label="Products" value={data.products} icon="📦" accent="#6EE7B7" loading={loading} />
